@@ -15,6 +15,10 @@ import rareDiseasesPojos.Resources;
 public class JDBCManager implements DBManager {
 
 	private Connection c;
+	
+	/*public JDBCManager() {
+		this.connect();
+	}*/
 
 	@Override
 	public void connect() {
@@ -22,7 +26,7 @@ public class JDBCManager implements DBManager {
 
 			// Open database connection
 			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:./db/rareDiseases.db");
+			this.c = DriverManager.getConnection("jdbc:sqlite:./db/rareDiseases.db");
 			c.createStatement().execute("PRAGMA foreign_keys=ON");
 			System.out.println("Database connection opened.");
 		}
@@ -150,5 +154,7 @@ public class JDBCManager implements DBManager {
 		}
 		return resources;
 	}
+	
+	
 
 }

@@ -3,6 +3,9 @@ package rareDiseasesMenu;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import rareDiseasesFx.JDBCManager;
+import rareDiseasesIfaces.DBManager;
+
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,11 +15,14 @@ import javafx.scene.paint.Color;
 public class MainApp extends Application {
 	// private ObservableList<Disease> diseaseInfo =
 	// FXCollections.observableArrayList();
+	
+	private static DBManager dbManager = new JDBCManager();
 
 	public void start(Stage stage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("copia.fxml"));
 		Scene scene = new Scene(root);
-		stage.initStyle(StageStyle.TRANSPARENT);
+		stage.initStyle(StageStyle.UTILITY);
+		//stage.initStyle(StageStyle.TRANSPARENT);
 
 		scene.setFill(Color.TRANSPARENT);
 		scene.getStylesheets().add("CSS/newCascadeStyleSheet.css");
@@ -29,6 +35,8 @@ public class MainApp extends Application {
 	 */
 
 	public static void main(String[] args) {
+		//dbManager.connect();
 		Application.launch(args);
+		//dbManager.disconnect();
 	}
 }
