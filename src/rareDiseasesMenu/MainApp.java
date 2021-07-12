@@ -5,7 +5,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import rareDiseasesFx.JDBCManager;
 import rareDiseasesIfaces.DBManager;
-
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,12 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 public class MainApp extends Application {
-	// private ObservableList<Disease> diseaseInfo =
-	// FXCollections.observableArrayList();
+	 //private ObservableList<Disease> diseaseInfo = FXCollections.observableArrayList();
 	
-	private static DBManager dbManager = new JDBCManager();
-
-	public void start(Stage stage) throws IOException {
+	public static DBManager dbman = new JDBCManager();
+	
+	public void start(Stage stage) throws IOException  {
 		Parent root = FXMLLoader.load(getClass().getResource("copia.fxml"));
 		Scene scene = new Scene(root);
 		stage.initStyle(StageStyle.UTILITY);
@@ -30,13 +28,9 @@ public class MainApp extends Application {
 		stage.show();
 	}
 
-	/*
-	 * public ObservableList<Disease> getDiseaseData() { return diseaseInfo; }
-	 */
-
-	public static void main(String[] args) {
-		//dbManager.connect();
+	public static void main(String[] args)  {
+		dbman.connect();
 		Application.launch(args);
-		//dbManager.disconnect();
+		dbman.disconnect();
 	}
 }

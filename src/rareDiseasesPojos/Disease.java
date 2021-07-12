@@ -43,7 +43,17 @@ public class Disease {
 		this.diagnosis = diagnosis;
 		this.description = description;
 	}
-
+	
+	public Disease(String diseaseName, String prevalence, String affectedSystem, String treatment,
+			String diagnosis, String description) {
+		super();
+		this.diseaseName = diseaseName;
+		this.prevalence = prevalence;
+		this.affectedSystem = affectedSystem;
+		this.treatment = treatment;
+		this.diagnosis = diagnosis;
+		this.description = description;
+	}
 	/*
 	 * private String description; public void setIdDisease(SimpleIntegerProperty
 	 * idDisease) { this.idDisease = idDisease; } public void
